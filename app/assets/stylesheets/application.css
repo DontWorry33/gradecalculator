@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.blue-bar {
+	margin: auto;
+	width: 80%;
+	height: 200px;
+	background-color: #006699;
+
+}
+
+.time-bar {
+	margin: auto;
+	width: 50%;
+	height: 200px;
+	background-color: #0088cc;
+
+}
+
+.time-button {
+	padding-top: 80px;
+	padding-left: 40px;
+}
