@@ -31,7 +31,7 @@ function newBoxHtml(index) {
 			'<td><input type="input" id="w'+index+'" value=""></td>'+
 			'<td><input type="input" id="g'+((index*2)-1)+'" value=""> / <input type="input" id="g'+(index*2)+'" value=""></td> '+
 			'<td id="pct'+index+'"> </td>'+
-			'</tr>';
+			'</tr> ';
 	return row;
 }
 
