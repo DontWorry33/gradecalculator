@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.blue-bar {
+	margin: auto;
+	width: 80%;
+	height: 200px;
+	background-color: #006699;
+
+}
+
+.time-bar {
+	margin: auto;
+	width: 50%;
+	height: 200px;
+	background-color: #0088cc;
+
+}
+
+.time-button {
+	padding-top: 80px;
+	padding-left: 40px;
+}
+
+
+.outer {
+	margin: 0px 5px 15px 20px;
+	width: 1000px;
+}
+
+.gradecalculator {
+	background-color: #EBEBF0;
+}
+
+.gradecalculator h4 {
+	margin: 0px 0px 10px 10px;
+	color: #CB4746;
+	text-decoration: bold;
+}
+.gradecalculator p {
+	margin: 0px 5px 15px 10px;
+}
+
+table {
+	margin: 0px 10px 15px 10px;
+	border: 1px solid black;
+}
+
+#addrowbtn {
+	margin: 0px 0px 20px 10px;
+	background-color: #CB4746;
+	color: white;
+}
+
+.styledbutton {
+	margin: 0px 10px 25px 0px;
+	background-color: #CB4746;
+	color: white;
+}
+
+th, td {
+	padding: 15px;
+	border: 1px solid black;
+}
+
+th {
+	background-color: #D0D0D4;
+}
+
+.result {
+	margin: 20px 0px 10px 10px;
+	text-align: right;
+}
+
+
+input {
+	width: auto;
+}
