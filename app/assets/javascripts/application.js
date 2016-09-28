@@ -70,6 +70,13 @@ $(document).ready(function() {
 		});
 	}
 	
+	//create click callback(s) for removing row
+		$('#r4').click(function() {
+			console.log($("#pct"+totalBoxes).closest("tr").remove());
+			totalBoxes-=1;
+		});
+	
+	
 	//when you click the mean button
 	$('#meanbtn').click(function() {
 		var boxesEntered=totalBoxes;
