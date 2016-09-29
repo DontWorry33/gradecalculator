@@ -1,0 +1,96 @@
+body {
+	background-color: #B41019;
+}
+
+.outer {
+	margin: 0px 5px 15px 20px;
+	width: auto;
+}
+
+.titlewhitebkg {
+	height: 100%;
+}
+
+.blacktopbar {
+	background-color: #3D3935;
+	width: 90%;
+	margin: auto;
+	padding-top:20px;
+	
+}
+
+.blackbottombar {
+	background-color: #3D3935;
+	width: 90%;
+	margin: auto;
+	position: relative;
+	padding-bottom: 50px;
+	
+}
+
+.gradecalculator {
+	background-color: white;
+	width: 90%;
+	height: 100%;
+	margin: auto;
+	padding-top: 30px;
+	padding-left: 30px;
+	padding-bottom: 30px;
+}
+
+.innerbkg {
+	background-color: #E8EEF0;
+	width:1000px;
+	
+	
+}
+
+.gradecalculator h4 {
+	margin: 0px 0px 10px 10px;
+	color: #CB4746;
+	text-decoration: bold;
+}
+.gradecalculator p {
+	margin: 0px 5px 15px 10px;
+}
+
+table {
+	margin: 0px 10px 15px 10px;
+	border: 1px solid black;
+}
+
+#addrowbtn {
+	margin: 0px 0px 20px 10px;
+	background-color: #B41019;
+	color: white;
+}
+
+#r4 {
+	background-color: #B41019;
+	color: white;
+}
+
+.styledbutton {
+	margin: 0px 10px 25px 0px;
+	background-color: #B41019;
+	color: white;
+}
+
+th, td {
+	padding: 15px;
+	border: 1px solid black;
+}
+
+th {
+	background-color: #D0D0D4;
+}
+
+.result {
+	margin: 20px 0px 0px 10px;
+	text-align: right;
+}
+
+
+input {
+	width: auto;
+}
