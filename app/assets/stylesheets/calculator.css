@@ -7,10 +7,6 @@ body {
 	width: auto;
 }
 
-.titlewhitebkg {
-	height: 100%;
-}
-
 .blacktopbar {
 	background-color: #3D3935;
 	width: 90%;
@@ -39,10 +35,13 @@ body {
 }
 
 .innerbkg {
+	border: 1px solid #DDE8EC;
+	border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	font-family: "Times New Roman", Times, serif;
 	background-color: #E8EEF0;
-	width:1000px;
-	
-	
+	width: 1000px;
 }
 
 .gradecalculator h4 {
@@ -59,26 +58,60 @@ table {
 	border: 1px solid black;
 }
 
+table input {
+	width: 60%;
+	height: 35px;
+}
+
+table input.extrapadding {
+
+}
+
+table p {
+	display: inline;
+}
+
 #addrowbtn {
-	margin: 0px 0px 20px 10px;
+	margin: 0px 10px 20px 10px;
+	font-family: Sans-serif, Arial, Verdana;
+	font-weight: 500;
 	background-color: #B41019;
 	color: white;
+	border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border: none;
 }
 
 #r4 {
+	font-family: Sans-serif, Arial, Verdana;
+	font-weight: 500;
 	background-color: #B41019;
 	color: white;
+	border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border: none;
 }
 
 .styledbutton {
 	margin: 0px 10px 25px 0px;
+	
+	font-family: Sans-serif, Arial, Verdana;
+	font-weight: 500;
 	background-color: #B41019;
 	color: white;
+	border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border: none;
 }
 
 th, td {
 	padding: 15px;
-	border: 1px solid black;
+	border: 1px solid #C2C2C2;
+	border-width: 1.5px;
+	color: black;
 }
 
 th {
@@ -93,4 +126,8 @@ th {
 
 input {
 	width: auto;
+}
+
+h4 {
+	font-weight: bold;
 }
