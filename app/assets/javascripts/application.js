@@ -38,7 +38,7 @@ function newBoxHtml(index) {
 function modifyPctBox(elem) {
 	
 		var currId = parseInt($(elem).attr('id').slice(1, $(elem).attr('id').length));
-		console.log(currId);
+		//console.log(currId);
 		if (currId%2==0) {
 			$('#pct'+(currId/2)).html(($('#g'+(currId-1)).val()/$('#g'+(currId)).val())*100+"%");
 		}
@@ -54,7 +54,8 @@ $(document).ready(function() {
 	var avgs=[];
 	var sum=0;
 	var sumweights=0;	
-
+	var patt=new RegExp("[^0-9]");
+	
 	//set percent values initially
 	for (var z=2; z<=totalBoxes*2; z++) {
 		if (z%2==0) {
@@ -71,39 +72,63 @@ $(document).ready(function() {
 	}
 	
 	//create click callback(s) for removing row
-		$('#r4').click(function() {
-			console.log($("#pct"+totalBoxes).closest("tr").remove());
-			totalBoxes-=1;
-		});
+	$('#r4').click(function() {
+		if (totalBoxes-1 == 0) {
+			alert("Can not remove last box! must have at least 1");
+			return;
+		}
+		$("#pct"+totalBoxes).closest("tr").remove();
+		totalBoxes-=1;
+	});
 	
 	
 	//when you click the mean button
 	$('#meanbtn').click(function() {
+		var isError = false;
 		var boxesEntered=totalBoxes;
+		
 		for (var x=2; x<=totalBoxes*2; x++){
-			if (x%2==0){
-
+			if (x%2==0) {
+				
 				if ($('#g'+(x-1)).val() == '' || $('#g'+(x)).val() == '') {
 					boxesEntered-=1;
 					continue;
 				}
+				if (patt.test($('#g'+(x-1)).val()) == true || patt.test($('#g'+(x)).val()) == true) {
+					alert("Non-numeric value entered in activity: "+x/2);
+					isError=true;
+					break;
+				}
 				if ($('#g'+(x)).val() == 0 || $('#g'+(x)).val() == '0') {
 					alert("You can not divide by 0");
+					isError=true;
 					break;
 				}
 				
+
 				var avg = $('#g'+(x-1)).val()/$('#g'+x).val();
+
 				avgs.push(avg);
 				
 			}
 			 
 		 }
-		 
+		 if (isError == true) {
+			 $('#resulttext').html("ERROR");
+			 avgs= [];
+			 sum=0;
+			 return;
+		 }
 		 for (var y=0; y<avgs.length; y++){
 			 sum+=avgs[y];
 		 }
-		 
-		 $('#resulttext').html(sum/boxesEntered);
+
+		 var totalVal = sum/boxesEntered;
+		 if (totalVal == "NaN") {
+
+			 totalVal=0;
+		 }
+		 $('#resulttext').html("<p>Mean of "+boxesEntered+" activity/activities: "+totalVal+"</p>");
 		 avgs= [];
 		 sum=0;
 		 
@@ -111,6 +136,7 @@ $(document).ready(function() {
 	
 	//when you click the weighted button
 	$('#weightbtn').click(function() {
+		var isError = false;
 		var boxesEntered=totalBoxes;
 		for (var x=2; x<=totalBoxes*2; x++){
 			if (x%2==0){
@@ -118,29 +144,49 @@ $(document).ready(function() {
 					boxesEntered-=1;
 					continue;
 				}
+				
+				if (patt.test($('#g'+(x-1)).val()) == true || patt.test($('#g'+(x)).val()) == true) {
+					alert("Non-numeric value entered in activity: "+x/2);
+					isError=true;
+					break;
+				}
+				
 				if ($('#g'+(x)).val() == 0 || $('#g'+(x)).val() == '0') {
 					alert("You can not divide by 0");
+					isError=true;
 					break;
 				}
 				if ($('#w'+(x/2)).val() == '') {
 					alert('Weight for Activity ' + (x/2) + ' is empty. Treating it as 0');
+					//boxesEntered-=1;
 					continue; 
 				}
 				
 				var avg = ($('#g'+(x-1)).val()/$('#g'+x).val()) * ($('#w'+(x/2)).val());
-				//console.log(avg);
+
 				sumweights+=(parseInt($('#w'+(x/2)).val()));
 				avgs.push(avg);
 				
 			}
 			 
 		 }
+		 if (isError == true) {
+			$('#resulttext').html("ERROR");
+			avgs= [];
+			sum=0;
+			sumweights=0;
+			return;
+		 }
 		 
 		 for (var y=0; y<avgs.length; y++){
 			 sum+=avgs[y];
 		 }
-		 //console.log(sumweights);
-		 $('#resulttext').html(sum/sumweights);
+
+		 var totalVal=sum/sumweights;
+		 if (totalVal == "NaN") {
+			 totalVal=0;
+		 }
+		 $('#resulttext').html("<p>Weighted mean of "+boxesEntered+" activity/activities: "+totalVal+"</p>");
 		 avgs= [];
 		 sum=0;
 		 sumweights=0;

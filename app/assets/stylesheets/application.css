@@ -98,7 +98,12 @@ table {
 
 #addrowbtn {
 	margin: 0px 0px 20px 10px;
-	background-color: #CB4746;
+	background-color: #B41019;
+	color: white;
+}
+
+#r4 {
+	background-color: #B41019;
 	color: white;
 }
 
